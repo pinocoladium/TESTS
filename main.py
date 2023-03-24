@@ -1,5 +1,6 @@
 import requests
 
+
 def get_list_visits(country="Россия"):
     geo_logs = [
         {"visit1": ["Москва", "Россия"]},
@@ -68,10 +69,10 @@ def get_dict_in_dict():
     return my_dict
 
 
-def create_folder_yandisk(name_folder='new folder'):
-    url = 'https://cloud-api.yandex.net/v1/disk/resources'
-    token = '....'
-    headers = {'Content-Type': 'application/json', 'Authorization': f'OAuth {token}'}
-    params = {'path': f'/{name_folder}'}
+def create_folder_yandisk(name_folder="new folder"):
+    url = "https://cloud-api.yandex.net/v1/disk/resources"
+    token = "...."
+    headers = {"Content-Type": "application/json", "Authorization": f"OAuth {token}"}
+    params = {"path": f"/{name_folder}"}
     response = requests.put(url, headers=headers, params=params)
     return response

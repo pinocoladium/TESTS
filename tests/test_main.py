@@ -69,6 +69,7 @@ class TestGet_dict_in_dict(unittest.TestCase):
                     for el4 in el3:
                         self.assertEqual(type(el4), list)
 
+
 class TestCreate_folder_yandisk(unittest.TestCase):
     def test_code_responce(self):
         responce = create_folder_yandisk()
@@ -84,12 +85,15 @@ class TestCreate_folder_yandisk(unittest.TestCase):
         self.assertNotAlmostEqual(code, expected)
 
     def test_get_info(self):
-        name_folder = 'new folder'
+        name_folder = "new folder"
         create_folder_yandisk(name_folder=name_folder)
-        url = 'https://cloud-api.yandex.net/v1/disk/resources'
-        token = '.....'
-        headers = {'Content-Type': 'application/json', 'Authorization': f'OAuth {token}'}
-        params = {'path': f'/{name_folder}'}
+        url = "https://cloud-api.yandex.net/v1/disk/resources"
+        token = "....."
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"OAuth {token}",
+        }
+        params = {"path": f"/{name_folder}"}
         code = requests.get(url, headers=headers, params=params).status_code
         expected = 200
         self.assertEqual(code, expected)
